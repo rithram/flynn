@@ -1,0 +1,13 @@
+python test/eval_hpdep_kfold_small_data.py -t <NTHREADS> -F 10 -e 4 -E 2048 -s 0.1 -S 0.3 -w 8 -W 32 -g 0. -G 0.5 -H ef -n 10
+python test/eval_hpdep_kfold_small_data.py -t <NTHREADS> -F 10 -e 256 -E 1024 -s 0.1 -S 0.8 -w 8 -W 32 -g 0. -G 0.5 -H cs -n 10
+python test/eval_hpdep_kfold_small_data.py -t <NTHREADS> -F 10 -e 256 -E 1024 -s 0.1 -S 0.3 -w 4 -W 256 -g 0. -G 0.5 -H wn -n 10
+python test/eval_hpdep_kfold_small_data.py -t <NTHREADS> -F 10 -e 256 -E 1024 -s 0.1 -S 0.3 -w 8 -W 32 -g 0.1 -G 0.8 -H gamma -n 10
+python test/eval_synthetic_binary_data.py -t <NTHREADS> -F 10 -c 60 -r 15 -f 2048.0 -s 0.5 -w 256 -S <NSAMPLES> -d <NDIMS> -L 5 -C 3 -W <NNZ_PER_ROW> -R 30
+python test/eval_synthetic_data.py -t <NTHREADS> -F 10 -c 60 -r 15 -f 2048.0 -s 0.5 -w 256 -S <NSAMPLES> -d <NDIMS> -L 5 -C 3 -R 30
+python test/knn_baseline.py -t <NTHREADS> -F 10 -n <MIN_DATA_DIM> -x <MAX_DATA_DIM> -S <MAX_DATA_SAMPLES>
+python test/sbf_baseline.py -t <NTHREADS> -F 10 -n <MIN_DATA_DIM> -x <MAX_DATA_DIM> -S <MAX_DATA_SAMPLES> -E 2048.0
+python test/flynn_hpo.py -t <NTHREADS> -F 10 -c 60 -r 15 -f 2048.0 -s 0.5 -w 256 -n <MIN_DATA_DIM> -x <MAX_DATA_DIM> -S <MAX_DATA_SAMPLES>
+python test/flynn_hpo.py -t <NTHREADS> -F 10 -c 60 -r 15 -f 2048.0 -s 0.5 -w 256 -n <MIN_DATA_DIM> -x <MAX_DATA_DIM> -S <MAX_DATA_SAMPLES> -N True
+python test/scaling_nparties.py -t 16 -B <MAX_BATCH_SIZE> -R 10
+python test/test_dp_flynn_syn.py -t 2 -S <NROWS> -d <NCOLS> -L 2 -C 5 -R 10 -f <EF> -k <WR> -c <CS> -r lin -T 50 -e all
+python test/test_dp_flynn_real.py -t 2 -d mnist -L 3 8 -R 10 -f <EF> -k <WR> -c <CS> -r lin -T 50 -e all
