@@ -24,7 +24,7 @@ from utils.parproc import split_for_parallelism
 from eval_synthetic_data import create_dataset
 
 import logging
-logger = logging.getLogger('DP-FBFC-FAST')
+logger = logging.getLogger('DP-FlyNN-FAST')
 
 @contextlib.contextmanager
 def temp_seed(seed):
@@ -419,13 +419,13 @@ if __name__ == '__main__':
     with temp_seed(5489):
         fargs['random_state'] = np.random.randint(99999)
     res_dict['seed'] += [fargs['random_state']]
-    logger.debug(f"Training fbfc with random seed {fargs['random_state']} ...")
-    fbfc = DPFlyNNFL(**fargs)
-    fbfc.fit(X1, y1)
+    logger.debug(f"Training flynn with random seed {fargs['random_state']} ...")
+    flynn = DPFlyNNFL(**fargs)
+    flynn.fit(X1, y1)
     for g in gamma_list:
-        fbfc.nonbinary_bf_c = 1.0 - g
-        fbfc.reduce_bfs()
-        bacc = get_scorer('balanced_accuracy')(fbfc, X2, y2)
+        flynn.nonbinary_bf_c = 1.0 - g
+        flynn.reduce_bfs()
+        bacc = get_scorer('balanced_accuracy')(flynn, X2, y2)
         res_dict[(g, np.inf, EF*ncols)] += [bacc]
         logger.info(f'- Non-private @ gamma-{g:.1f}: {bacc:.4f}')
     save_list2file(res_dict, res_file, res_cols)
@@ -433,11 +433,11 @@ if __name__ == '__main__':
         sys.exit(0)
     for eps, T in product(EPS, NRNDS):
         for g in gamma_list:
-            fbfc.nonbinary_bf_c = 1.0 - g
+            flynn.nonbinary_bf_c = 1.0 - g
             for rep in range(NREPS):
-                fbfc.dp = {'eps': eps, 'T': T, 'c0': 0.}
-                fbfc.reduce_bfs()
-                bacc = get_scorer('balanced_accuracy')(fbfc, X2, y2)
+                flynn.dp = {'eps': eps, 'T': T, 'c0': 0.}
+                flynn.reduce_bfs()
+                bacc = get_scorer('balanced_accuracy')(flynn, X2, y2)
                 res_dict[(g, eps, T)] += [bacc]
                 logger.info(f'- Private(eps: {eps:.2f}, T={T}) @ gamma-{g:.1f}: {bacc:.4f}')
         save_list2file(res_dict, res_file, res_cols)
