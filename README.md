@@ -1,6 +1,6 @@
 # FlyNN: Fly Nearest Neighbor Classifier
 
-Code for the "Federated Nearest Neighbor Classification with a Colony of Fruit-Flies" paper appearing at the AAAI 2022 conference on Artificial Intelligence.
+Code for the "Federated Nearest Neighbor Classification with a Colony of Fruit-Flies" paper appearing at the AAAI 2022 conference on Artificial Intelligence. The camera ready version is available [here](subs/12811.RamP.camera-ready.pdf) (extended version with supplement is [here](subs/12811.RamP.camera-ready-with-supplement.pdf)). 
 
 
 Table of contents:
