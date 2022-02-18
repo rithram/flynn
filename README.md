@@ -1,4 +1,7 @@
-# Code for "Federated Nearest Neighbor Classification with a Colony of Fruit-Flies"
+# FlyNN: Fly Nearest Neighbor Classifier
+
+Code for the "Federated Nearest Neighbor Classification with a Colony of Fruit-Flies" paper appearing at the AAAI 2022 conference on Artificial Intelligence.
+
 
 Table of contents:
 - [Setting up environment](#setting-up-environment)
@@ -10,6 +13,9 @@ Table of contents:
   - [Running comparison to baselines with OpenML data](#running-comparison-to-baselines-with-openml-data)
   - [Scaling with number of parties](#scaling-with-number-of-parties)
   - [Differential privacy effect](#differential-privacy-effect)
+- [Citation](#citation)
+
+
 ## Setting up environment
 
 This section details the setup of the compute environment for executing the provided scripts.
@@ -430,3 +436,18 @@ We utilize all following
 ```
 
 
+## Citation
+
+Please use the following citation for the paper:
+```
+Ram, Parikshit and Sinha, Kaushik. "Federated Nearest Neighbor Classification with a Colony of Fruit-Flies." To appear in the Proceedings of the 36th AAAI Conference on Artificial Intelligence. 2022.
+```
+or
+```
+@inproceedings{ram2022federated,
+  title={Federated Nearest Neighbor Classification with a Colony of Fruit-Flies},
+  author={Ram, Parikshit and Sinha, Kaushik},
+  booktitle={To appear in Proceedings of the 36th AAAI Conference on Artificial Intelligence},
+  year={2022}
+}
+```
